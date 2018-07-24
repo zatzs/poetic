@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Share A Poem</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+    <!-- load fontawesome 4.0.3-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <style media="screen">
+      body { padding-top: 80px; background-color: #e5efc1;}
+      #addPoemButton{background-color: #39aea9;color: white}
+      h1, label{color: #5b5151;}
+      input{ width: 50px;}
+      textarea {
+                  width: 500px;
+                  padding: 12px 20px;
+                  box-sizing: border-box;
+                  border: 2px solid #ccc;
+                  border-radius: 4px;
+                  background-color: #f8f8f8;
+                  resize: none;
+              }
+    </style>
+  </head>
+  <body>
+    <div class=" text-center">
+      <img src="/assets/logo.png" alt="">
+    </div>
+    <center><h1>Share Your Poetry With the World</h1></center>
+    <hr>
+    <form method= "post" action="/addPoem">
+      <div class="form-group">
+        <label for="poemTitle">Title</label>
+        <input  class="form-control" name="title" id="poemTitle" placeholder="The Raven...">
+      </div>
+      <div class="form-group">
+        <label for="poemBody">Body</label>
+        <textarea class="form-control" name="body" id="poemBody" rows="15"></textarea>
+      </div>
+      <button type="submit" class="btn btn-warning btn-lg" id="addPoemButton">Share Poem</button>
+    </form>
+  </body>
+</html>
