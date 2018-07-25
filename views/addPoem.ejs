@@ -2,32 +2,67 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Share A Poem</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
-    <!-- load fontawesome 4.0.3-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
-    <style media="screen">
-      body { padding-top: 80px; background-color: #e5efc1;}
-      #addPoemButton{background-color: #39aea9;color: white}
-      h1, label{color: #5b5151;}
-      input{ width: 50px;}
-      textarea {
-                  width: 500px;
-                  padding: 12px 20px;
-                  box-sizing: border-box;
-                  border: 2px solid #ccc;
-                  border-radius: 4px;
-                  background-color: #f8f8f8;
-                  resize: none;
-              }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Poetic | Share Poem</title>
+    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/paper/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
   </head>
   <body>
-    <div class=" text-center">
-      <img src="/assets/logo.png" alt="">
+    <nav class="navbar navbar-inverse navbar-fixed-left" id="navbar11">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+            <a href="/feed"><img src="/assets/logo.png" height="37.5px" width="150px"alt=""></a>
+          <br>
+        <strong><u><a class="navbar-brand" href="/profile"><%= user.firstname + " " + user.lastname%></a></u></strong>
+
+        </div>
+        <div id="navbar" class="navbar-collapse collapse" >
+          <ul class="nav navbar-nav" id="sideMenu">
+            <li><a href="/profile">My Profile</a></li>
+            <li><a href="/feed">Trending Poems</a></li>
+            <li><a href="/addPoem">New Post</a></li>
+            <li><a href="/logout">Log Out</a></li>
+            <li class="dropdown">
+              <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Inbox<span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li role="separator" class="divider"></li>
+                <li class="dropdown-header">Nav header</li>
+                <li><a href="#">Separated link</a></li>
+                <li><a href="#">One more separated link</a></li>-->
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="text-center" align="center">
+        <a href="/feed"><img src="/assets/logo.png" alt=""></a>
+        <p>
+          <strong>
+            A poetry app
+          </strong>
+        </p>
+        <h2>
+          Share Your Poem
+        </h2>
+        <hr>
     </div>
-    <center><h1>Share Your Poetry With the World</h1></center>
-    <hr>
+
+
     <form method= "post" action="/addPoem">
       <div class="form-group">
         <label for="poemTitle">Title</label>
@@ -40,4 +75,149 @@
       <button type="submit" class="btn btn-warning btn-lg" id="addPoemButton">Share Poem</button>
     </form>
   </body>
+  <script type="text/javascript">
+  var dropdown2 = document.getElementById("dropdown2")//.textContent;
+  var dropdown3 = dropdown2.textContent.substring(0,100);
+  console.log(dropdown3);
+  dropdown2.innerHTML=dropdown3;
+  </script>
+  <style media="screen">
+  hr{
+    border-color: #5b5151;
+  }
+  ul{
+    list-style-type: none;
+  }
+  #paragraphlink{
+    text-decoration: none;
+    color: #5b5151;
+  }
+  #buttonLink{
+    text-decoration: none;
+    color: #5b5151;
+  }
+  #a{
+    border: 1px;
+    border-color: black;
+  }
+  #navbar11{
+    background-color: #39aea9;
+  }
+  .card {
+          margin: 0 auto; /* Added */
+          float: none; /* Added */
+          margin-bottom: 10px; /* Added */
+          display: inline;
+  }
+  @media (min-width: 768px) {
+  .container {
+    width: 503px;
+  }
+  }
+  @media (min-width: 992px) {
+  .container {
+    width: 723px;
+  }
+  }
+  @media (min-width: 1200px) {
+  .container {
+    width: 923px;
+  }
+  }
+  @media (min-width: 1432px) {
+  .container {
+    width: 1170px;
+  }
+  }
+  body {
+  padding-top: 70px;
+   background-color: #e5efc1;
+  }
+  @media (min-width: 768px) {
+  body {
+    padding-top: 0;
+  }
+  }
+  .navbar-fixed-right,
+  .navbar-fixed-left {
+    color: #39aea9;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1030;
+  }
+  @media (min-width: 768px) {
+  .navbar-fixed-right,
+  .navbar-fixed-left {
+    width: 232px;
+    height: 100vh;
+    border-radius: 0;
+  }
+  .navbar-fixed-right .container,
+  .navbar-fixed-left .container,
+  .navbar-fixed-right .container-fluid,
+  .navbar-fixed-left .container-fluid {
+    padding-right: 0;
+    padding-left: 0;
+    width: auto;
+  }
+  .navbar-fixed-right .navbar-header,
+  .navbar-fixed-left .navbar-header {
+    float: none;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .navbar-fixed-right .navbar-collapse,
+  .navbar-fixed-left .navbar-collapse {
+    padding-right: 0;
+    padding-left: 0;
+    max-height: none;
+  }
+  .navbar-fixed-right .navbar-collapse .navbar-nav,
+  .navbar-fixed-left .navbar-collapse .navbar-nav {
+    float: none !important;
+    color: #39aea9;
+  }
+  .navbar-fixed-right .navbar-collapse .navbar-nav > li,
+  .navbar-fixed-left .navbar-collapse .navbar-nav > li {
+    width: 100%;
+    color: #39aea9;
+  }
+  .navbar-fixed-right .navbar-collapse .navbar-nav > li.dropdown .dropdown-menu,
+  .navbar-fixed-left .navbar-collapse .navbar-nav > li.dropdown .dropdown-menu {
+    top: 0;
+    color: #39aea9;
+  }
+  .navbar-fixed-right .navbar-collapse .navbar-nav.navbar-right,
+  .navbar-fixed-left .navbar-collapse .navbar-nav.navbar-right {
+    margin-right: 0;
+    color: #39aea9;
+  }
+  }
+  @media (min-width: 768px) {
+  body {
+    margin-left: 232px;
+  }
+  }
+  @media (min-width: 768px) {
+  .navbar-fixed-left {
+    right: auto !important;
+    left: 0 !important;
+    border-width: 0 1px 0 0 !important;
+  }
+  .navbar-fixed-left .dropdown .dropdown-menu {
+    left: 100%;
+    right: auto;
+    border-radius: 0 3px 3px 0;
+    color: #39aea9;
+  }
+  .navbar-fixed-left .dropdown .dropdown-toggle .caret {
+    border-top: 4px solid transparent;
+    border-left: 4px solid;
+    border-bottom: 4px solid transparent;
+    border-right: none;
+    color: #39aea9;
+  }
+  }
+  </style>
 </html>

@@ -3,16 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Poetic</title>
+  <title>Poetic | Feed</title>
   <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/paper/bootstrap.min.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-  <link rel="stylesheet" href="navbar-fixed-right.min.css">
-  <link rel="stylesheet" href="navbar-fixed-left.min.css">
-  <link rel="stylesheet" href="docs.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script src="docs.js"></script>
   <script async defer src="https://buttons.github.io/buttons.js"></script>
 </head>
 <body>
@@ -25,14 +21,17 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">Profile</a>
+          <a href="/feed"><img src="/assets/logo.png" height="37.5px" width="150px"alt=""></a>
+        <br>
+      <strong><u><a class="navbar-brand" href="/profile"><%= user.firstname + " " + user.lastname%></a></u></strong>
+
       </div>
       <div id="navbar" class="navbar-collapse collapse" >
         <ul class="nav navbar-nav" id="sideMenu">
-          <li><a href="/home">Home</a></li>
           <li><a href="/profile">My Profile</a></li>
           <li><a href="/feed">Trending Poems</a></li>
           <li><a href="/addPoem">New Post</a></li>
+          <li><a href="/logout">Log Out</a></li>
           <li class="dropdown">
             <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Inbox<span class="caret"></span></a>
             <ul class="dropdown-menu">
@@ -51,14 +50,16 @@
   </nav>
   <div class="container">
     <div class="text-center" align="center">
-      <img src="/assets/logo.png" alt="">
+      <a href="/feed"><img src="/assets/logo.png" alt=""></a>
       <p>
         <strong>
           A poetry app
         </strong>
       </p>
-      <p>
-      </p>
+      <h2>
+        Trending Poems
+      </h2>
+      <hr>
   </div>
 <!--  <div class="card w-50"  style="width: 18rem;" align="center" id="a">
     <div class="card-header">
@@ -89,33 +90,33 @@ sunset quinceañera</p>
 </div>-->
 <!--<a href="#" class="card-block clearfix" id="buttonLink">-->
 
-
-
-
-<div class="row" id="aaa">
-<div class="card">
-  <a href="poem.ejs">
-  <div class="card-header" text-decoration="none" color="#5b5151">
-    <h4>Quote</h4>
-  </div>
-  </a>
-  <div class="card-body">
-    <blockquote class="blockquote mb-0">
-      <div style="text-overflow: ellipsis ; overflow:hidden" id="dropdown1">
-        <a href="./poem.ejs" id="paragraphlink" >
-      <p id="dropdown2">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        Integer posuere erat a ante.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        Integer posuere erat a ante.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+<ul>
+  <% for(var i = trendingPoems.length - 1; i >= 0; i--) {%>
+  <li>
+    <div class="row" id="aaa">
+      <div class="card">
+        <a href="/poem/<%= trendingPoems[i].id %>">
+          <div class="card-header" text-decoration="none" color="#5b5151">
+            <h4><%= trendingPoems[i].title %></h4>
+          </div>
         </a>
+        <div class="card-body">
+          <blockquote class="blockquote mb-0">
+            <div style="text-overflow: ellipsis ; overflow:hidden" id="dropdown1">
+              <a href="/poem/<%= trendingPoems[i].id %>" id="paragraphlink" >
+            <p id="dropdown2"><%= trendingPoems[i].body %></p>
+              </a>
+              </div>
+
+            <!--</a>-->
+            <!-- <a href="/profile2/<%= //trendingPoems[i].userID %>">--><footer class="blockquote-footer"><%="User " + trendingPoems[i].userID %></cite></footer><!--</a> -->
+          </blockquote>
         </div>
-      <!--</a>-->
-      <a href="./profile.ejs"><footer class="blockquote-footer">Author</cite></footer></a>
-    </blockquote>
-  </div>
-</div>
-</div>
+      </div>
+    </div>
+</li>
+<% } %>
+</ul>
 </body>
 <script type="text/javascript">
 var dropdown2 = document.getElementById("dropdown2")//.textContent;
@@ -124,6 +125,12 @@ console.log(dropdown3);
 dropdown2.innerHTML=dropdown3;
 </script>
 <style media="screen">
+hr{
+  border-color: #5b5151;
+}
+ul{
+  list-style-type: none;
+}
 #paragraphlink{
   text-decoration: none;
   color: #5b5151;
